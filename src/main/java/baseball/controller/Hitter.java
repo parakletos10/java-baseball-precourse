@@ -15,9 +15,10 @@ public class Hitter implements Rule {
 
     public void swing() {
         setInputValue(new HitterInput().inputValue());
+        setAnswerValue();
     }
 
-    public void setAnswerValue() {
+    private void setAnswerValue() {
         getAnswerValue().clear();
 
         for (char character : getInputValue().toCharArray()) {
