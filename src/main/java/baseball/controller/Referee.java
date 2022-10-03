@@ -21,13 +21,12 @@ public class Referee implements Rule {
     }
 
     private boolean inPlay() {
-        ValueVerify valueVerify = new ValueVerify(LIMIT_NUMBER, START_NUMBER, END_NUMBER);
-        valueVerify.verify(pitcher.getInputValue(), pitcher.getQuestionValue());
-
         Hitter hitter = new Hitter();
         hitter.swing();
+
+        ValueVerify valueVerify = new ValueVerify(LIMIT_NUMBER, START_NUMBER, END_NUMBER);
+        valueVerify.verify(pitcher.getInputValue(), pitcher.getQuestionValue());
         valueVerify.verify(hitter.getInputValue(), hitter.getAnswerValue());
-        hitter.setAnswerValue();
 
         ValueCall valueCall = new ValueCall();
         valueCall.strikeCall(hitter.getAnswerValue(), pitcher.getInputValue());
